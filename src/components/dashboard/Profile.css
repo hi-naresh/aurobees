@@ -1,0 +1,99 @@
+.profile-container {
+    margin: 2rem;
+  }
+  
+  label {
+    display: block;
+    margin-top: 1rem;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  button {
+    margin-top: 1rem;
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns grid */
+    gap: 2rem; /* Spacing between grid items */
+    margin-top: 1rem;
+  }
+  
+  .image-grid-item {
+    position: relative;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px; /* Rounded corners for button */
+    overflow: hidden;
+    height: 150px; /* Fixed height for grid items */ 
+  }
+  
+  .image-grid-item img {
+    max-width: 250px;
+    max-height: 250px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 14px; /* Rounded corners for button */
+    transition: background-color 0.6s ease;
+  }
+
+  .image-grid-item button {
+    position: absolute;
+    bottom: 10px;
+    /* display: none; */
+    left: 0px;
+    border-radius: 24px; /* Rounded corners for button */
+  }
+
+.image-upload-container {
+    /* Container styles */
+    position: relative;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px; /* Rounded corners for button */
+    overflow: hidden;
+    height: 200px; /* Fixed height for grid items */ 
+}
+
+.image-upload-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px; /* Adjust size as needed */
+    height: 70px; /* Adjust size as needed */
+    border-radius: 50%; /* This makes it a circle */
+    background: #f0f0f0; /* Light grey background, change as needed */
+    border: 2px solid #ccc; /* Optional border */
+    cursor: pointer;
+    margin: auto; /* Center in the grid space if necessary */
+}
+
+.image-upload-input {
+    display: none; /* Hide the actual input */
+}
+
+.image-preview img{
+  cursor: pointer; /* Shows a pointer to indicate the element is clickable */
+    object-fit: cover;
+    width: 200px;
+    height: 220px;
+}
+
+/* SVG icon styling */
+.feather-plus {
+    stroke: #000; /* Color of the plus icon */
+}

@@ -1,0 +1,100 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(180deg, #FFD099 40%, #FF9209 100%);
+    height: 100vh; /* or your desired height */    
+}
+
+.login-container h2 {
+    color: #1c2154; /* Assuming the heading is white */
+    margin-bottom: 20px;
+    font-size: 48px; /* Adjust as needed */
+}
+
+.login-container p {
+    color: #ff4b5a; /* Adjust the color to match the exact error message shade */
+    margin-bottom: 10px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Adjust as needed */
+}
+
+.login-container input, .login-container select  {
+    margin-bottom: 10px; /* Space between inputs */
+    border: none;
+    border-radius: 20px; /* Rounded borders */
+    padding: 15px;
+    width: 91%; /* Full width */
+    font-size: 16px; /* Adjust as needed */
+}
+
+.login-container button {
+    opacity: 1; /* By default, button is not disabled */
+    background-color: #7B87F1; /* Adjust the color to match the exact pink shade */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 0;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.login-container button:disabled {
+    background-color: #7B87F1; /* Lighter shade for disabled state */
+}
+
+.login-container select {
+    appearance: none; /* Remove default styling for select */
+    background-color: white;
+    cursor: pointer;
+    width: 98%;
+    margin-bottom: 15px;
+}
+
+.login-container button:hover {
+    opacity: 0.8; /* Hover effect */}
+
+.login-container a {
+    color: white; /* Assuming the link is white */
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+/* Assuming your button has a class name 'fixed-next-button' */
+.fixed-next-button {
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* Align to the bottom */
+    left: 0;
+    width: 90%;
+    height: 60px;
+    left: 5%;
+    padding: 12px 20px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+}
+
+.head-text {
+    position: fixed; /* Fixed positioning */
+    text-align: center;
+    top: 1rem; /* Align to the top */
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Add your additional styles for other elements */
+/* Responsive Design */
+@media (max-width: 600px) {
+    .login-container form {
+        width: 90%;
+    }
+}

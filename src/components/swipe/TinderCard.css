@@ -1,0 +1,92 @@
+.card {
+    position: relative;
+    width: 600px;
+    display: grid;
+    padding: 10px;
+    max-width: 85vw;
+    height: 73vh;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background: linear-gradient(180deg, #FFD099 40%, #FF9209 100%);
+    /* box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.15); */
+}
+
+.card__no-more{
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+}
+.card__no-more > p{
+    font-size: 1rem;
+    font-weight: 400;
+    padding-top: 20px;
+}
+
+.explore-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+    background: #fff; /* Or any color you prefer */
+  }
+  .explore-header h2{
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .filter-icon {
+    width: 32px; /* Or the size you prefer */
+    height: 32px;
+    cursor: pointer;
+    /* Style your icon color, size, etc */
+  }
+.card > h3 {
+    position: absolute;
+    left: 20px;
+    bottom: 50px;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.card > h4 {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.card__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 4vh;
+}
+
+.swipe {
+    position: absolute;
+}
+
+.match-notification {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    z-index: 100;
+}
+
+.match-notification button {
+    margin: 10px;
+    padding: 5px 15px;
+}
+
