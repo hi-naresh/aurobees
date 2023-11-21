@@ -15,6 +15,12 @@ npm i react-tinder-card
 ```
 npm install react react-dom
 ```
+```
 npm install 
+```
+```
 npm start
+```
+
+
 
