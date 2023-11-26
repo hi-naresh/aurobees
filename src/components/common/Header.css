@@ -1,40 +1,28 @@
 .header {
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 20px 20px 0 0;
-    padding: 10px 0; /* Added padding for visual spacing */
-
-    /* Transparency */
-    background: rgba(255, 255, 255, 1); /* Semi-transparent background */
-    
-    /* Blur effect */
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px); /* Adjust the px value to increase/decrease the blur effect */
-    
-    /* Fallback for browsers that do not support backdrop-filter */
-    /* You can use a semi-transparent background as a fallback */
-    @supports not ((-webkit-backdrop-filter: blur(10px)) or backdrop-filter: blur(10px)) {
-        background-color: rgba(255, 255, 255,1);
-    }
+    padding: 0px 0px 25px 0px;  
+    background-color: #fff;   
 }
 
 .main-content {
-    padding-top: 20px;
-    padding-bottom: 100px;
+    padding-top: 15px;
 }
 
 .header__image {
-    height: 35px;
+    height: 28px;
     object-fit: contain;
 }
 
 .headerIcons {
-    padding: 40px;
+    margin: 0px 40px;
+    padding: 5px;
+    border-radius: 40%;
     cursor: pointer;
 }

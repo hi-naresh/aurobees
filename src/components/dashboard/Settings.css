@@ -1,0 +1,79 @@
+.settings-page {
+  /* Use the global background */
+  /* background: linear-gradient(180deg, #FFD099 40%, #FF9209 100%); */
+  /* font-family: 'sans-serif'; */
+}
+
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  border: 5px solid #FDE0CC;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.profile-name-age {
+  color: #1c2154;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.settings-body {
+  margin: 0px 20px;
+}
+
+.setting-tile {
+  display: flex;
+  justify-content: space-between;
+  background: #FDE0CC;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.setting-tile button {
+  display: flex;
+  justify-content: space-between;
+  background: #FDE0CC;
+  align-items: center;
+  font-size: 1rem;
+  padding: 5px 0px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.setting-link {
+  text-decoration: none;
+  color: #1c2154;
+  display: block;
+  width: 100%;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: #1c2154;
+}
+
+@media (max-width: 600px) {
+  .settings-page {
+    padding: 0;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+}
+

@@ -1,60 +1,25 @@
-.card {
+/* .card {
     position: relative;
-    width: 600px;
+    width: 640px;
     display: grid;
-    padding: 10px;
-    max-width: 85vw;
-    height: 73vh;
-    border-radius: 20px;
+    padding: 0px;
+    max-width: 93vw;
+    height: 74vh;
+    border-radius: 20px 20px 0 0;
     background-size: cover;
     background-position: center;
     background: linear-gradient(180deg, #FFD099 40%, #FF9209 100%);
-    /* box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.15); */
-}
+} */
 
-.card__no-more{
-    position: absolute;
-    width: 70%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-    font-weight: 400;
-    text-align: center;
-}
-.card__no-more > p{
-    font-size: 1rem;
-    font-weight: 400;
-    padding-top: 20px;
-}
 
-.explore-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 30px;
-    background: #fff; /* Or any color you prefer */
-  }
-  .explore-header h2{
-    font-size: 2rem;
-    font-weight: 700;
-  }
-  
-  .filter-icon {
-    width: 32px; /* Or the size you prefer */
-    height: 32px;
-    cursor: pointer;
-    /* Style your icon color, size, etc */
-  }
-.card > h3 {
-    position: absolute;
-    left: 20px;
-    bottom: 50px;
-    color: #fff;
+.title {
+    padding-left: 20px;
+    padding-top: 61vh;
+    color: #fefefe;
     font-size: 2rem;
 }
 
-.card > h4 {
+.cardContent > h4 {
     position: absolute;
     left: 20px;
     bottom: 20px;
@@ -65,28 +30,181 @@
 .card__container {
     display: flex;
     justify-content: center;
-    margin-top: 4vh;
+    margin-top: 2vh;
+    border-radius: 20px ;
 }
+  
+  .card-image-section {
+    background-size: cover;
+    background-position: center;
+    height: 67vh; /* Adjust height as needed */
+    min-width: 90vw;
+  }
+  
+  /* .card-interests-section {
+    padding: 10px;
+  }
+  .card-bio{
+    margin-top: 20px;
+  } */
+
+  .cardContent {
+    overflow: hidden;
+    width: 94vw;
+    height: 80vh;
+    border-radius: 20px; /* This is the rounded corner radius */
+    background: #FDE0CC;
+  }
+  
+  .scrollableArea {
+    overflow-y: auto;
+    height: 80vh; /* Set a fixed height for the scrolling area */
+  }
+  .scrollableArea::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollableArea {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .card-bio, .card-basics h3 {
+    font-size: 1.5rem;
+    color: #6B6B6B;
+    font-weight: 500;
+    /* padding: 5px 20px; */
+  }
+    .card-bio, .card-basics {
+        font-size: 1.2rem;
+        color: #212121;
+        /* font-weight: 600; */
+        padding: 0px 20px;
+        margin: 10px 0px;
+    }
+    
+    .description {
+        display: inline-block;
+        position: relative;
+        background: #F8C79A;
+        font-size: 1.1rem;
+        margin: 10px 5px;
+        padding: 5px 10px;
+        border-radius: 20px;   
+    }
+  
+
+.card__no-more{
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    
+}
+.card__no-more > p{
+    font-size: 1rem;
+    font-weight: 400;
+    padding-top: 20px;
+}
+
+   .explore-header {
+    display: flex;
+    /* position: fixed; */
+    width: 90%;
+    justify-content: space-between;
+    padding: 0px 20px;
+    align-items: center;
+    background: #fff; 
+  }
+  .explore-header h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .filter-icon {
+    width: 32px; /* Or the size you prefer */
+    height: 32px;
+    cursor: pointer;
+    /* Style your icon color, size, etc */
+  }
 
 .swipe {
     position: absolute;
 }
 
 .match-notification {
+    height: 100%;
+    width: 100%;
     position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    padding: 20px;
+    top: 0;
+    background: linear-gradient(180deg, #FFD099 40%, #FF9209 100%);
+    opacity: 0.98;
+    color: #1c2154;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     text-align: center;
     z-index: 100;
+    gap: 15px;
+}
+
+.match-notification > h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .match-notification button {
-    margin: 10px;
-    padding: 5px 15px;
+    /* margin: 10px; */
+    /* padding: 5px 15px; */
+    border: none;
+    color: #1c2154;
+    pointer-events: cursor;
+    border-radius: 20px;
+    min-width: 60vw;
+    min-height: 5vh;
+    font-weight: 600;
 }
 
+.match-notification-avatar{
+    min-width: 170px;
+    min-height: 170px;
+    border-radius: 50%;
+    margin: 20px;
+    border: 5px solid #fff;
+}
+
+.match-avatars {
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15vh;
+}
+
+.match-avatars > .match-notification-avatar {
+    position: absolute; /* Each avatar with absolute positioning */
+    min-width: 170px;
+    min-height: 170px;
+    border-radius: 50%;
+    margin: 20px;
+    border: 5px solid #fff;
+    left: calc(50% - 105px); /* Center the avatar horizontally */
+    z-index: 1; /* Stack order */
+}
+
+/* Additional classes for each avatar, to offset them from one another */
+.match-avatars > .match-notification-avatar:first-child {
+    z-index: 2; /* Bring this avatar to the front */
+    transform: translateX(-70px); /* Move to the left */
+}
+
+.match-avatars > .match-notification-avatar:last-child {
+    z-index: 4; /* Send this avatar to the back */
+    transform: translateX(70px); /* Move to the right */
+}

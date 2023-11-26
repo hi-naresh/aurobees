@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
-import { useSnackbar } from "../SnackBar";
+import { useSnackbar } from "../common/SnackBar";
 
 function SignUp() {
   const emailRef = useRef();

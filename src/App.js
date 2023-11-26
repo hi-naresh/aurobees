@@ -15,9 +15,10 @@ import PublicRoute from "./routes/PublicRoutes"; // Import PublicRoute
 import PersonalDetails from "./components/authentication/personal-form/PersonalDetails";
 import PhotoUpload from "./components/authentication/personal-form/PhotoUpload";
 import InterestsForm from "./components/authentication/personal-form/InterestsForm";
-import { SnackbarProvider } from "./components/SnackBar";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import ChatScreen from "./components/chat/ChatScreen";
+import { SnackbarProvider } from "./components/common/SnackBar";
+import Bio from "./components/dashboard/settings/Bio_pics";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <PrivateRoute path="/photo-upload" component={PhotoUpload} />
             <PrivateRoute path="/interests-form" component={InterestsForm} />
             <PrivateRoute path="/chat/:userId" component={ChatScreen} />
+            <PrivateRoute path="/bio-pics" component={Bio}/>
             <Route>
               <MainLayout>
                 <Switch>

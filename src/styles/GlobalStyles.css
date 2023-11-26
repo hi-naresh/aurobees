@@ -1,0 +1,176 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    height: 100vh; 
+    background: #fff;
+}
+
+.container h2 {
+    color: #1c2154; /* Assuming the heading is white */
+    font-size: 2rem;
+}
+
+.container p {
+    color: grey; /* Adjust the color to match the exact error message shade */
+    margin-bottom: 0px;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container input {
+    margin-bottom: 10px; /* Space between inputs */
+    border: none;
+    border-radius: 20px; /* Rounded borders */
+    padding: 15px;
+    height: 60px;
+    background: #FDE0CC;
+    font-size: 1.1rem; /* Adjust as needed */
+}
+
+.container button {
+    opacity: 1; /* By default, button is not disabled */
+    background: #7B87F1; /* Adjust the color to match the exact pink shade */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 0;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.container button:disabled {
+    background-color: #7B87F1; /* Lighter shade for disabled state */
+}
+
+.container select {
+    appearance: none; /* Remove default styling for select */
+    background: #FDE0CC;
+    cursor: pointer;
+    width: 98%;
+    margin-bottom: 15px;
+}
+
+.container button:hover {
+    opacity: 0.8; /* Hover effect */}
+
+.container a {
+    color: white; /* Assuming the link is white */
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+/* Assuming your button has a class name 'fixed-next-button' */
+.fixed-next-button {
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* Align to the bottom */
+    left: 0;
+    width: 90%;
+    height: 60px;
+    left: 5%;
+    padding: 12px 20px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+}
+
+.head-text {
+    position: fixed; /* Fixed positioning */
+    text-align: center;
+    top: 1rem; /* Align to the top */
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.image-grid {
+    display: grid;
+    padding-top: 2rem;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns grid */
+    gap: 2rem; /* Spacing between grid items */
+    /* margin-top: 1rem; */
+  }
+  
+  .image-grid-item {
+    position: relative;
+    border: none;
+    background: #FDE0CC;
+    cursor: pointer;
+    min-width: 160px;
+    display: flex;
+    border-radius: 14px; /* Rounded corners for button */
+    overflow: hidden;
+    height: 170px; 
+}
+  
+  .image-grid-item img {
+    max-width: 250px;
+    min-height: 190px;
+    object-fit: cover;
+    border-radius: 14px; /* Rounded corners for button */
+    transition: background-color 0.6s ease;
+  }
+
+  .image-grid-item button {
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    border-radius: 24px; /* Rounded corners for button */
+  }
+
+.image-upload-container {
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px; /* Rounded corners for button */
+    overflow: hidden;
+    height: 200px; /* Fixed height for grid items */ 
+}
+
+.image-upload-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px; /* Adjust size as needed */
+    height: 70px; /* Adjust size as needed */
+    border-radius: 50%; /* This makes it a circle */
+    background: #f0f0f0; /* Light grey background, change as needed */
+    border: 2px solid #ccc; /* Optional border */
+    cursor: pointer;
+    margin: auto; /* Center in the grid space if necessary */
+}
+
+.image-upload-input {
+    display: none; /* Hide the actual input */
+}
+
+.image-preview img{
+  cursor: pointer; /* Shows a pointer to indicate the element is clickable */
+    object-fit: cover;
+    width: 200px;
+    height: 240px;
+}
+
+/* SVG icon styling */
+.feather-plus {
+    stroke: #000; /* Color of the plus icon */
+}
+
+
+/* Add your additional styles for other elements */
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container form {
+        width: 90%;
+    }
+}
