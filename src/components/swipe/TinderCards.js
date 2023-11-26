@@ -5,8 +5,6 @@ import { useAuth } from "../../contexts/AuthContext";
 import { getSwipeableUsers } from "../../services/userService";
 import { recordSwipe } from "../../services/swipeService";
 import { checkForMatch, recordMatch } from "../../services/matchService";
-
-import database from "../../firebase";
 import MatchNotification from "./Match"; // Assuming this is a component you've created
 import { useHistory } from "react-router-dom";
 import Card from "./Card"; // Your Card component

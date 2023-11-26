@@ -12,9 +12,7 @@ const Bio = () => {
   const [newImage] = useState(null);
   const [error, setError] = useState(null);
   const history = useHistory();
-  const { logout } = useAuth();
   const { openSnackbar } = useSnackbar(); // Use the hook
-
 
   // Load existing user data
   useEffect(() => {
@@ -156,7 +154,7 @@ const Bio = () => {
   return (
     <div className="container">
         <h2>My Profile</h2>
-      {error && <div className="error">{error}</div>}
+      {loading && <div className="error">{error}</div>}
       <div className="image-grid">
         {[0, 1, 2, 3].map((index) =>
           renderImageGrid(
