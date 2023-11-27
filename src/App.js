@@ -5,7 +5,6 @@ import MainLayout from "./components/common/MainLayout";
 import Chats from "./components/chat/Chats";
 import TinderCards from "./components/swipe/TinderCards";
 import Profile from "./components/dashboard/Profile";
-import Matches from "./components/matches/Matches";
 import { AuthProvider } from "./contexts/AuthContext";
 import Login from "./components/authentication/Login";
 import SignUp from "./components/authentication/SignUp";
@@ -42,7 +41,6 @@ function App() {
                 <Switch>
                   <PrivateRoute path="/chat" component={Chats} />
                   <PrivateRoute path="/profile" component={Profile} />
-                  <PrivateRoute path="/matches" component={Matches} />
                   <PrivateRoute path="/swipe" component={TinderCards} />
                 </Switch>
               </MainLayout>

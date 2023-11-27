@@ -11,6 +11,7 @@ import Card from "./Card"; // Your Card component
 import RightIcon from "../../icons/right.svg";
 import LeftIcon from "../../icons/wrong.svg";
 
+
 const appStyles = {
   height: "80vh",
   display: "flex",
