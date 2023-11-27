@@ -1,0 +1,38 @@
+.verification-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+    background: linear-gradient(180deg, #FFD099 40%, #FF9209 100%);
+  }
+  
+  .verification-container h2 {
+    margin-bottom: 15px;
+  }
+  
+  .verification-container p {
+    margin-bottom: 20px;
+  }
+  
+  .verified-flag {
+    color: green;
+  }
+  
+  .verification-container button {
+    padding: 20px 20px;
+    background-color: #7B87F1; /* Green */
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .verification-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

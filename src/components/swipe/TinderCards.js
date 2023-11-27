@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Swipeable from "react-swipy";
 import "./TinderCard.css"; // Make sure this CSS file exists and contains your styles
 import { useAuth } from "../../contexts/AuthContext";
@@ -8,7 +8,8 @@ import { checkForMatch, recordMatch } from "../../services/matchService";
 import MatchNotification from "./Match"; // Assuming this is a component you've created
 import { useHistory } from "react-router-dom";
 import Card from "./Card"; // Your Card component
-import Button from "./Button"; // Your Button component
+import RightIcon from "../../icons/right.svg";
+import LeftIcon from "../../icons/wrong.svg";
 
 const appStyles = {
   height: "80vh",
@@ -49,6 +50,9 @@ function TinderCards() {
     setupCards();
   }, [currentUser]);
 
+  const [swipeDirection, setSwipeDirection] = useState(null);
+  const currentCardRef = useRef(null);
+
   const handleSwipe = async (direction, person) => {
     try {
       await recordSwipe(currentUser.uid, person.id, direction);
@@ -67,8 +71,116 @@ function TinderCards() {
     }
   };
 
+  // This effect triggers every time swipeDirection changes
+  useEffect(() => {
+    if (swipeDirection && currentCardRef.current) {
+      // This is where you would add your animation logic
+      const cardElement = currentCardRef.current;
+      // Trigger CSS animation based on the swipe direction
+      cardElement.style.transition = "transform 0.5s ease-out";
+      cardElement.style.transform = `translateX(${
+        swipeDirection === "right" ? 1000 : -1000
+      }px)`;
+
+      // After the animation completes, reset everything
+      setTimeout(() => {
+        removeUserFromList(); // Remove the user from the list
+        cardElement.style.transition = "none";
+        cardElement.style.transform = "none"; // Reset transform for the next card
+        setSwipeDirection(null); // Reset swipe direction
+      }, 500); // Match your CSS animation duration
+    }
+  }, [swipeDirection]);
+
   const removeUserFromList = () => {
     setPeople((prevPeople) => prevPeople.slice(1));
+  };
+
+  const handleManualSwipe = async (direction) => {
+    if (people.length > 0) {
+      const person = people[0]; // Get the top card (current card)
+      await handleSwipe(direction, person); // Use your existing swipe handler
+
+      // Animate the card swipe
+      if (currentCardRef.current) {
+        const cardElement = currentCardRef.current;
+        cardElement.style.transition = "transform 0.5s ease-out";
+        cardElement.style.transform = `translateX(${
+          direction === "right" ? 1000 : -1000
+        }px)`;
+
+        // After the animation, proceed as if the card was swiped
+        setTimeout(() => {
+          removeUserFromList();
+          cardElement.style.transition = "none";
+          cardElement.style.transform = "none";
+        }, 500); // Should match your CSS animation duration
+      }
+    }
+  };
+
+  const renderCards = () => {
+    return people.map((person, index) => (
+      <Swipeable
+        key={person.id}
+        onAfterSwipe={() => removeUserFromList()}
+        onSwipe={(dir) => handleSwipe(dir, person)}
+      >
+        <Card zIndex={people.length - index} id={`card-${person.id}`}>
+          {/* Card content goes here */}
+          <div
+            div
+            ref={index === 0 ? currentCardRef : null}
+            key={person.id}
+            className="cardContent"
+          >
+            <div className="scrollableArea">
+              {/* Image section */}
+              <div
+                className="card-image-section"
+                style={{ backgroundImage: `url(${person.photos[0]})` }}
+              >
+                <h2 className="title">
+                  {person.name}, {person.age}
+                  <p>
+                    {person.department}-{person.year}
+                  </p>
+                </h2>
+                {/* Other card details */}
+              </div>
+              <div className="card-bio">
+                <h3>About me</h3>
+                <p>{person.bio}</p>
+              </div>
+              <div className="card-basics">
+                <h3>My basics</h3>
+                {person.interests.split(", ").map((interest, index) => (
+                  <span className="description" key={index}>
+                    {interest}
+                  </span>
+                ))}
+                <span className="description">{person.lookingFor}</span>
+              </div>
+
+              {/* Interests section */}
+              <div className="card-interests-section"></div>
+
+              {/* Additional image sections */}
+              {person.photos.slice(1).map((photoUrl, index) => (
+                <div
+                  key={index}
+                  className="card-image-section"
+                  style={{ backgroundImage: `url(${photoUrl})` }}
+                ></div>
+              ))}
+
+              {/* Other information like department, lookingFor, etc. */}
+              <div className="card-info-section"></div>
+            </div>
+          </div>
+        </Card>
+      </Swipeable>
+    ));
   };
 
   return (
@@ -92,83 +204,36 @@ function TinderCards() {
       />
       <div style={appStyles}>
         <div style={wrapperStyles}>
-          {people.length > 0 ? (
-            people.map((person, index) => (
-              <Swipeable
-                key={person.id}
-                buttons={({ right, left }) => (
-                  <div>
-                    <Button onClick={() => left()}>Reject</Button>
-                    <Button onClick={() => right()}>Accept</Button>
-                  </div>
-                )}
-                onAfterSwipe={() => removeUserFromList()}
-                onSwipe={(dir) => handleSwipe(dir, person)}
-              >
-                <Card zIndex={people.length - index}>
-                  {/* Card content goes here */}
-                  <div className="cardContent">
-                    <div className="scrollableArea">
-                      {/* Image section */}
-                      <div
-                        className="card-image-section"
-                        style={{ backgroundImage: `url(${person.photos[0]})` }}
-                      >
-                        <h2 className="title">
-                          {person.name}, {person.age}
-                        </h2>
-                        {/* Other card details */}
-                      </div>
-                      <div className="card-bio">
-                        <h3>About me</h3>
-                        <p>{person.bio}</p>
-                      </div>
-                      <div className="card-basics">
-                        <h3>My basics</h3>
-                        {person.interests.split(", ").map((interest, index) => (
-                          <span className="description" key={index}>
-                            {interest}
-                          </span>
-                        ))}
-                        <span className="description">{person.lookingFor}</span>
-                      </div>
-
-                      {/* Interests section */}
-                      <div className="card-interests-section"></div>
-
-                      {/* Additional image sections */}
-                      {person.photos.slice(1).map((photoUrl, index) => (
-                        <div
-                          key={index}
-                          className="card-image-section"
-                          style={{ backgroundImage: `url(${photoUrl})` }}
-                        ></div>
-                      ))}
-
-                      {/* Other information like department, lookingFor, etc. */}
-                      <div className="card-info-section">
-                        <p>Department: {person.department}</p>
-                        <p>Looking for: {person.lookingFor}</p>
-                        {/* ... other details */}
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </Swipeable>
-            ))
-          ) : (
+          {people.length > 0 ? renderCards() : (
             <div className="cardContent">
-            <div className="card__no-more">
-              <h2>That's everyone!</h2>
-              <p>
-                {" "}
-                You've seen all the people nearby. <br></br>Check later for more
-                matches.
-              </p>
+              <div className="card__no-more">
+                <h2>That's everyone!</h2>
+                <p>
+                  {" "}
+                  You've seen all the people nearby. <br></br>Check later for
+                  more matches.
+                </p>
+              </div>
             </div>
-          </div>
           )}
         </div>
+
+        {people.length > 0 && ( // Only show buttons if there are cards
+          <div className="like-dislike-btn-container">
+            <button
+              className="like-btn"
+              onClick={() => handleManualSwipe("right")}
+            >
+              <img height={"30px"} src={RightIcon} alt="Like" />
+            </button>
+            <button
+              className="dislike-btn"
+              onClick={() => handleManualSwipe("left")}
+            >
+              <img height={"24px"} src={LeftIcon} alt="Dislike" />
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

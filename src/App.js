@@ -19,6 +19,7 @@ import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import ChatScreen from "./components/chat/ChatScreen";
 import { SnackbarProvider } from "./components/common/SnackBar";
 import Bio from "./components/dashboard/settings/Bio_pics";
+import EmailVerificationStatus from "./components/authentication/EmailVerificationStatus";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <PublicRoute path="/" exact component={Onboarding} />
             <PublicRoute path="/login" component={Login} />
             <PublicRoute path="/signup" component={SignUp} />
+            <PrivateRoute path="/email-verify" component={EmailVerificationStatus} />
             <PrivateRoute path="/personal-details" component={PersonalDetails} />
             <PrivateRoute path="/photo-upload" component={PhotoUpload} />
             <PrivateRoute path="/interests-form" component={InterestsForm} />

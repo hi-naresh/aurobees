@@ -75,7 +75,6 @@ function SettingsPage() {
         <h2>Account</h2>
         <SettingTile title="Notifications" link="/notifications" />
         <SettingTile title="Change password" link="/change-password" />
-        <SettingTile title="Deactivate account" link="/deactivate-account" />
         <div className="setting-tile">
           <button  
           className="setting-link" 

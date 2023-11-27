@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 import { useSnackbar } from "../common/SnackBar";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function SignUp() {
   const emailRef = useRef();
@@ -28,13 +28,12 @@ function SignUp() {
     try {
       setError("");
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      const userCredential = await signup(emailRef.current.value, passwordRef.current.value);
       // alert("Account created successfully");
-      openSnackbar("Account created successfully"); // Use Snackbar instead of alert
+      await userCredential.user.sendEmailVerification(); // Send verification email
 
-      // await history.push("/profile-form");
-      // console.log("reached");
-      history.push("/personal-details");
+      openSnackbar("Account created successfully. Please check your email to verify your account."); 
+      history.push("/email-verify", { email: emailRef.current.value });
     } catch {
       setError("Failed to create an account");
     }
