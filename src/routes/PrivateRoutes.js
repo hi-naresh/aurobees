@@ -5,13 +5,13 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     const { currentUser } = useAuth();
-    // const history = useHistory();
+    const history = useHistory();
 
-    // useEffect(() => {
-    //     if (!currentUser?.emailVerified) {
-    //       history.push('/email-verify');
-    //     }
-    //   }, [currentUser, history]);
+    useEffect(() => {
+        if (!currentUser?.emailVerified) {
+          history.push('/email-verify');
+        }
+      }, [currentUser, history]);
 
 
     return (
