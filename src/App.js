@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
 import MainLayout from "./components/common/MainLayout";
@@ -19,8 +19,24 @@ import ChatScreen from "./components/chat/ChatScreen";
 import { SnackbarProvider } from "./components/common/SnackBar";
 import Bio from "./components/dashboard/settings/Bio_pics";
 import EmailVerificationStatus from "./components/authentication/EmailVerificationStatus";
+import Loading from "./components/common/Loading";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a loading time with setTimeout
+    // You can replace this with your actual loading logic
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 seconds loading time
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <AuthProvider>
       <SnackbarProvider>

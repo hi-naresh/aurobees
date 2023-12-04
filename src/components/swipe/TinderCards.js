@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import Swipeable from "react-swipy";
-import "./TinderCard.css"; // Make sure this CSS file exists and contains your styles
+import "./TinderCard.css"; 
 import { useAuth } from "../../contexts/AuthContext";
 import { getSwipeableUsers } from "../../services/userService";
 import { recordSwipe } from "../../services/swipeService";
 import { checkForMatch, recordMatch } from "../../services/matchService";
-import MatchNotification from "./Match"; // Assuming this is a component you've created
+import MatchNotification from "./Match"; 
 import { useHistory } from "react-router-dom";
-import Card from "./Card"; // Your Card component
+import Card from "./Card"; 
 import RightIcon from "../../icons/right.svg";
 import LeftIcon from "../../icons/wrong.svg";
-
 
 const appStyles = {
   height: "80vh",
@@ -205,7 +204,9 @@ function TinderCards() {
       />
       <div style={appStyles}>
         <div style={wrapperStyles}>
-          {people.length > 0 ? renderCards() : (
+          {people.length > 0 ? (
+            renderCards()
+          ) : (
             <div className="cardContent">
               <div className="card__no-more">
                 <h2>That's everyone!</h2>
