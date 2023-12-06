@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './PersonalityForm.css'; // Import the CSS file here
 import { useAuth } from '../../../contexts/AuthContext';
-import database, { firebase } from "../../../firebase";
+import { firebase } from "../../../firebase";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
