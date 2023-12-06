@@ -32,7 +32,7 @@ function SignUp() {
       // alert("Account created successfully");
       await userCredential.user.sendEmailVerification(); // Send verification email
 
-      openSnackbar("Account created successfully. Please check your email to verify your account."); 
+      openSnackbar("Check email to verify your account."); 
       history.push("/email-verify", { email: emailRef.current.value });
     } catch {
       setError("Failed to create an account");

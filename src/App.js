@@ -10,7 +10,7 @@ import Login from "./components/authentication/Login";
 import SignUp from "./components/authentication/SignUp";
 import Onboarding from "./components/onboard/Onboarding";
 import PrivateRoute from "./routes/PrivateRoutes";
-import PublicRoute from "./routes/PublicRoutes"; // Import PublicRoute
+import PublicRoute from "./routes/PublicRoutes"; 
 import PersonalDetails from "./components/authentication/personal-form/PersonalDetails";
 import PhotoUpload from "./components/authentication/personal-form/PhotoUpload";
 import InterestsForm from "./components/authentication/personal-form/InterestsForm";
@@ -20,16 +20,16 @@ import { SnackbarProvider } from "./components/common/SnackBar";
 import Bio from "./components/dashboard/settings/Bio_pics";
 import EmailVerificationStatus from "./components/authentication/EmailVerificationStatus";
 import Loading from "./components/common/Loading";
+import Interests from "./components/dashboard/settings/Interests";
+import PersonalityForm from "./components/dashboard/settings/PersonalityForm";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a loading time with setTimeout
-    // You can replace this with your actual loading logic
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // 3 seconds loading time
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -52,12 +52,15 @@ function App() {
             <PrivateRoute path="/interests-form" component={InterestsForm} />
             <PrivateRoute path="/chat/:userId" component={ChatScreen} />
             <PrivateRoute path="/bio-pics" component={Bio}/>
+            <PrivateRoute path="/interests" component={Interests}/>
+            <PrivateRoute path="/personality" component={PersonalityForm}/>
             <Route>
               <MainLayout>
                 <Switch>
                   <PrivateRoute path="/chat" component={Chats} />
                   <PrivateRoute path="/profile" component={Profile} />
                   <PrivateRoute path="/swipe" component={TinderCards} />
+                  <PrivateRoute path="*" component={TinderCards} />
                 </Switch>
               </MainLayout>
             </Route>

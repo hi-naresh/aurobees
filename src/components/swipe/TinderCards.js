@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import Swipeable from "react-swipy";
-import "./TinderCard.css"; 
+import "./TinderCard.css";
 import { useAuth } from "../../contexts/AuthContext";
 import { getSwipeableUsers } from "../../services/userService";
 import { recordSwipe } from "../../services/swipeService";
 import { checkForMatch, recordMatch } from "../../services/matchService";
-import MatchNotification from "./Match"; 
+import MatchNotification from "./Match";
 import { useHistory } from "react-router-dom";
-import Card from "./Card"; 
+import Card from "./Card";
 import RightIcon from "../../icons/right.svg";
 import LeftIcon from "../../icons/wrong.svg";
 
@@ -146,19 +146,39 @@ function TinderCards() {
                     {person.department}-{person.year}
                   </p>
                 </h2>
-                {/* Other card details */}
               </div>
               <div className="card-bio">
                 <h3>About me</h3>
                 <p>{person.bio}</p>
               </div>
               <div className="card-basics">
-                <h3>My basics</h3>
-                {person.interests.split(", ").map((interest, index) => (
-                  <span className="description" key={index}>
-                    {interest}
-                  </span>
-                ))}
+                <h3>My Basics</h3>
+                <div className="interests-list">
+                  {person.personality && Array.isArray(person.personality) ? (
+                    person.personality.map((item, index) => (
+                      <span className="description" key={index}>
+                        {item.answer}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="description">No details provided</span>
+                  )}
+                </div>
+              </div>
+
+              <div className="card-basics">
+                <h3>My Interests</h3>
+                <div className="interests-list">
+                  {Array.isArray(person.interests) ? (
+                    person.interests.map((interest, index) => (
+                      <span className="description" key={index}>
+                        {interest}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="description">No interests</span>
+                  )}
+                </div>
                 <span className="description">{person.lookingFor}</span>
               </div>
 

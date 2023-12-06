@@ -1,0 +1,52 @@
+.personality-fill-up {
+  font-family: 'Arial', sans-serif;
+  max-width: 600px;
+  margin: auto;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin: 30px 20%;
+  height: 3px;
+  width: 60%;
+}
+
+.progress-bar-inner {
+  background-color: #8f8ccf; /* The progress bar color */
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+}
+
+.question-container {
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+}
+
+.question-container h1 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.question-container button {
+  display: block;
+  width: 80%;
+  padding: 15px;
+  margin: 10px 50px;
+  border: 0.5px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.question-container button:hover {
+  background-color: #f7f7f7;
+}

@@ -9,12 +9,15 @@
 .loading-container svg {
   animation: moveUpDown 2s ease-in-out infinite alternate;
 }
+.grey{
+  position: absolute;
+}
 
 @keyframes moveUpDown {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px); /* Adjust the value for more or less motion */
+    transform: translateY(-30px); /* Adjust the value for more or less motion */
   }
 }

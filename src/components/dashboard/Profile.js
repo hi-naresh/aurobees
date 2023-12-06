@@ -70,7 +70,7 @@ function SettingsPage() {
       </div>
       <div className="settings-body">
         <SettingTile title="Bio & pics" link="/bio-pics" />
-        <SettingTile title="Info & tags" link="/info-tags" />
+        <SettingTile title="Info & tags" link="/interests" />
         <SettingTile title="Personality" link="/personality" />        
         <h2>Account</h2>
         <SettingTile title="Notifications" link="/notifications" />

@@ -8,8 +8,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     const history = useHistory();
 
     useEffect(() => {
-        if (!currentUser?.emailVerified) {
-          history.push('/email-verify');
+        if (!currentUser) {
+            history.push('/login');
+          } 
+        else if (!currentUser.emailVerified) {
+            history.push('/email-verify');
         }
       }, [currentUser, history]);
 

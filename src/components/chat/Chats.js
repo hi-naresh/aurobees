@@ -60,16 +60,22 @@ const Chats = () => {
       <div 
       style={{paddingTop: "20px",}} 
       className="chats">
-        {matchedUsers.map((user) => (
-          <Chat
-            key={user.matchId}
-            name={user.name}
-            message={user.lastMessage}
-            timestamp={new Date().toLocaleDateString("en-US")}
-            profilePic={user.photos[0]} // Assuming the first photo is what you want to show
-            userId={user.matchId} // Add this line if not already present
-          />
-        ))}
+        {matchedUsers.length > 0 ? (
+          matchedUsers.map((user) => (
+            <Chat
+              key={user.matchId}
+              name={user.name}
+              message={user.lastMessage}
+              timestamp={new Date().toLocaleDateString("en-US")}
+              profilePic={user.photos[0]}
+              userId={user.matchId}
+            />
+          ))
+        ) : (
+          <div style={{ height:'80vh',display:'flex' ,textAlign: 'center',alignItems:'center',justifyContent:'center', marginTop: '20px' }}>
+            <h2>No matches yet</h2>
+          </div>
+        )}
       </div>
     </div>
   );

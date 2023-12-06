@@ -11,8 +11,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    /* align-items: center;
-    justify-content: center; */
     padding: 20px;
     background: linear-gradient(180deg, #FFD099 40%, #FF9209 100%);
     height: 100vh; 
@@ -70,18 +68,18 @@
 }
 
 .login-container button:hover {
-    opacity: 0.8; /* Hover effect */}
+    opacity: 0.8; 
+}
 
 .login-container a {
-    color: white; /* Assuming the link is white */
+    color: white;
     text-decoration: none;
     margin-top: 10px;
 }
 
-/* Assuming your button has a class name 'fixed-next-button' */
 .fixed-next-button {
-    position: fixed; /* Fixed positioning */
-    bottom: 0; /* Align to the bottom */
+    position: fixed; 
+    bottom: 0; 
     left: 0;
     width: 90%;
     height: 60px;
@@ -89,6 +87,18 @@
     padding: 12px 20px;
     text-align: center;
     z-index: 1000;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+}
+.fixed-second-next-button {
+    position: fixed;
+    right: 0;
+    top: 0;
+    right: 5%;
+    top: 2%;
+    padding: 12px 20px;
+    text-align: center;
+    z-index: 100;
+    border-radius: 50px;
     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
 }
 

@@ -5,7 +5,6 @@ import { database } from '../../../firebase';
 
 
 function InterestsForm() {
-    const [interests, setInterests] = useState('');
     const [genderInterest, setGenderInterest] = useState('');
     const [lookingFor, setLookingFor] = useState('');
     const history = useHistory();
@@ -14,8 +13,8 @@ function InterestsForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Submit all collected data to Firebase
-        await database.collection('users').doc(currentUser.uid).update({ interests, genderInterest, lookingFor });
-        history.push('/swipe'); // Redirect to the swipe screen
+        await database.collection('users').doc(currentUser.uid).update({ genderInterest, lookingFor });
+        history.push('/interests');
     };
 
     return (
@@ -44,13 +43,7 @@ function InterestsForm() {
                     <option value="I don't know yet">I don't know yet</option>
                     <option value="Prefer not to say">Prefer not to say</option>
                 </select>
-                <input 
-                    placeholder="Interests" 
-                    value={interests}
-                    onChange={(e) => setInterests(e.target.value)} 
-                    required 
-                />
-                <button className='fixed-next-button' type="submit">Finish</button>
+                <button className='fixed-next-button' type="submit">Next</button>
             </form>
         </div>
     );
